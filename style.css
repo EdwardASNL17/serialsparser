@@ -2,7 +2,7 @@ body
 {
 	background-color: #f8f9fa;
 }
-.form-inline .form-control
+.container
 {
-	width: 400px;
+	padding-top: 50px;
 }

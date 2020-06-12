@@ -28,6 +28,10 @@ if (isset($_POST['serial'])) {
 	}
 	$photo = $photo[$size-1];
 	$src = $photo->src;
+	$title = $html->find(".title");
+	$title_text = $title[2]->plaintext;
+	$pagetitle = $html->find(".page-title");
+	$pagetitle_text = $pagetitle[0]->plaintext;
 
 
 }
@@ -46,7 +50,7 @@ if (isset($_POST['serial'])) {
   </head>
   <body>
   	<header class="header">
- <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark" role="navigation">
+ <nav class="navbar navbar-expand-md navbar-dark sticky-top bg-dark" role="navigation">
  <a class="navbar-brand" href="#" role="banner">Узнай сериал</a>
  
  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsDefault" aria-controls="navbarsDefault" aria-expanded="false" aria-label="Переключить навигацию">
@@ -64,44 +68,39 @@ if (isset($_POST['serial'])) {
  </ul>
  
  <form method="POST" class="form-inline my-2 my-lg-0" role="search" name="findserial">
- <input class="form-control mr-sm-2" type="text" placeholder="Введите название сериала на английском" aria-label="Поиск" required="1" id="serial" name="serial">
+ <input class="form-control mr-sm-4" type="text" placeholder="Введите название сериала на английском" aria-label="Поиск" required="1" id="serial" name="serial">
  <button class="btn btn-outline-success my-2 my-sm-0" name="done" id="done" type="submit">Отправить</button>
  </form>
  </div>
  </nav>
  </header>
-  <div class="container-fluid p-0">
-      <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-  <ol class="carousel-indicators">
-    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-  </ol>
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img class="d-block w-100" src="<?php echo $src;?>" alt="First slide">
-    </div>
-  </div>
-  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
-  </a>
-</div>
-    </div>
- <div class="container" style="margin-top: 70px;">
- 	<p><?php foreach ($serial as $key => $value) {
-	echo $key." ".$value;
-	echo "<br>";
-	} ?></p>
-	<p><?php foreach ($whyserial as $key => $value) 
-	{
-	echo $value;
-	echo "<br><br>";
-	}  ?>
-	</p>
+ <?php if (isset($_POST['serial'])) {
+ ?>
+
+ <div class="container ">
+ 	<h2><?php echo "$pagetitle_text";  ?></h2>
+ 	<div class="row">
+ 		<div class="col-6">
+ 			
+ 			<p><?php foreach ($serial as $key => $value) {
+				echo $key." ".$value;
+				echo "<br>";} ?>
+					
+			</p>
+		</div>
+		<div class="col-6">
+			<img class="d-block w-100" src="<?php echo $src;?>" alt="First slide">
+		</div>
+	</div>
+		<h2><?php echo $title_text; ?></h2>
+		<p><?php foreach ($whyserial as $key => $value) 
+			{
+				echo $value;
+				echo "<br><br>";
+			}  ?>
+			</p>
  </div>
+<?php }  ?>
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
