@@ -60,7 +60,7 @@ if (isset($_POST['serial'])) {
     <title>Найти сериал</title>
   </head>
   <body>
-  	<header class="header sticky-top">
+  	<header class="header sticky-top w-100">
  <nav class="navbar navbar-expand-md navbar-dark sticky-top bg-dark" role="navigation">
  <a class="navbar-brand" href="index.php" role="banner">Узнай сериал</a>
  
@@ -87,7 +87,7 @@ if (isset($_POST['serial'])) {
  </header>
  <?php if (isset($_POST['serial']) && $list) {
  ?>
-<div class="alert alert-success alert-dismissible fade show " role="alert">
+	 <div class="alert alert-success alert-dismissible fade show w-100" role="alert">
    Информация о сериале успешно отображена
   <button type="button" class="close" data-dismiss="alert" aria-label="Close">
     <span aria-hidden="true">&times;</span>
@@ -123,7 +123,7 @@ if (isset($_POST['serial'])) {
  </div>
 <?php } else if (isset($_POST['serial'])) {
  ?>
-<div class="alert alert-danger alert-dismissible fade show " role="alert">
+<div class="alert alert-danger alert-dismissible fade show w-100" role="alert">
    Упс...Что-то пошло не так
   <button type="button" class="close" data-dismiss="alert" aria-label="Close">
     <span aria-hidden="true">&times;</span>
