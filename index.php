@@ -80,7 +80,7 @@ if (isset($_POST['serial'])) {
  
  <form method="POST" class="form-inline my-2 my-lg-0" role="search" name="findserial">
  <input class="form-control  mr-sm-4" type="text" placeholder="Введите название сериала на английском" aria-label="Поиск" required="1" id="serial" name="serial">
- <button class="btn btn-outline-success my-2 my-sm-0" name="done" id="done" type="submit">Отправить</button>
+ <button class="btn btn-outline-success my-2 my-sm-0 btn-block-sm" name="done" id="done" type="submit">Отправить</button>
  </form>
  </div>
  </nav>
@@ -129,9 +129,18 @@ if (isset($_POST['serial'])) {
     <span aria-hidden="true">&times;</span>
   </button>
 </div>
+<div class="container">
+	<h1>Возможно, вы допустили одну из ошибок</h1>
+	<ul>
+		<li>Ввели название сериала на русском языке</li>
+		<li>Использовали символы не из английского алфавита</li>
+		<li>Ошиблись в названии сериала</li>
+	</ul>
+	<p class="error_p">Опираясь на рекомендации из списка, попробуйте еще раз</p>
+</div>
 <?php } else { ?>
 <div class="container-fluid p-0">
-      <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+      <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" data-interval = "4000">
   <ol class="carousel-indicators">
     <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active "></li>
     <li data-target="#carouselExampleIndicators" data-slide-to="1" class=""></li>

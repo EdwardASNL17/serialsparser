@@ -10,3 +10,11 @@ body
 {
 	width: 50px;
 }
+li
+{
+	font-size: 24px;
+}
+.error_p
+{
+	font-size: 24px;
+}
