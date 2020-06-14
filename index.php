@@ -62,7 +62,7 @@ if (isset($_POST['serial'])) {
   <body>
   	<header class="header sticky-top w-100">
  <nav class="navbar navbar-expand-md navbar-dark sticky-top bg-dark" role="navigation">
- <a class="navbar-brand" href="index.php" role="banner">Узнай сериал</a>
+ <a class="navbar-brand" href="index.php" role="banner">FindSerial</a>
  
  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsDefault" aria-controls="navbarsDefault" aria-expanded="false" aria-label="Переключить навигацию">
  <span class="navbar-toggler-icon"></span>
@@ -71,10 +71,10 @@ if (isset($_POST['serial'])) {
  <div class="collapse navbar-collapse" id="navbarsDefault">
  <ul class="navbar-nav mr-auto">
  <li class="nav-item active">
- <a class="nav-link" href="#">Главная <span class="sr-only">(current)</span></a>
+ <a class="nav-link" href="index.php">Главная <span class="sr-only">(current)</span></a>
  </li>
  <li class="nav-item">
- <a class="nav-link" href="#">О сайте</a>
+ <a class="nav-link" href="aboutus.php">О сайте</a>
  </li>
  </ul>
  
