@@ -5,9 +5,9 @@ if (isset($_POST['serial'])) {
 	$serial = str_replace(" ", "-", $serial);
 	$serial = str_replace("*", "", $serial);
 	$serial = mb_strtolower($serial);
-	$url = "http://fanserials.house/".$serial."/";
+	$url = "http://fanserials.dog/";
 	$ch = curl_init();
-	curl_setopt($ch, CURLOPT_URL, $url);
+	curl_setopt($ch, CURLOPT_URL, $url.$serial."/");
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 	$answer = curl_exec($ch);
 	$dom = new simple_html_dom();
@@ -26,14 +26,14 @@ if (isset($_POST['serial'])) {
 	$div = $html->find(".body p");
 	$i = 0;
 	$whyserial = array();
-	$photo = $html->find(".field-poster img");
-	$size = count($photo);
 	foreach ($div as $key => $value) 
 	{
 		$whyserial[$i] = $value->plaintext;
 	$i++;
 
 	}
+	$photo = $html->find(".field-poster img");
+	$size = count($photo);
 	$photo = $photo[$size-1];
 	$src = $photo->src;
 	$title = $html->find(".title");
@@ -85,7 +85,7 @@ if (isset($_POST['serial'])) {
  </div>
  </nav>
  </header>
- <?php if (isset($_POST['serial']) && $list) {
+ <?php if (isset($_POST['serial']) && isset($list)) {
  ?>
 	 <div class="alert alert-success alert-dismissible fade show w-100" role="alert">
    Информация о сериале успешно отображена
